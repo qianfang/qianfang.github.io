@@ -1,0 +1,18 @@
+# Node modules
+**/node_modules/**
+
+# Cache
+**/.vuepress/.cache/**
+# Temp
+**/.vuepress/.temp/**
+# Output
+**/.vuepress/dist/**
+
+# 自定义草稿箱
+src/_temp/
+
+# Audit report
+audit-report.json
+
+# GoodSync
+_gsdata_/

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>LearnData - 读书笔记</title>
+    <meta name="description" content="将书籍转化为你的工具书！专注实体书摘要总结，涵盖效率习惯、思维成长、沟通技巧等领域，运用费曼技巧和3-2-1训练法，助你真正吸收并运用所学知识。" />
+    <link rel="stylesheet" href="https://oss.newzone.top/docsify/main/4.13.1/themes/vue.css" />
+    <link rel="stylesheet" href="https://oss.newzone.top/docsify/docsify-toc/dist/toc.css" />
+    <!-- <link rel="stylesheet" href="https://oss.newzone.top/docsify/docsify-gifcontrol/dist/docsify-gifcontrol.css"> -->
+    <link rel="stylesheet" href="https://oss.newzone.top/@waline/3.8.0/client/dist/waline.css" />
+    <style>
+      .anchor {
+        font-weight: bold;
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(0, 0, 0, 0.075);
+      }
+
+      .app-name {
+        width: 150px;
+      }
+
+      section.cover h1 {
+        margin: 1.5rem 0 1.5rem;
+      }
+
+      section.cover p {
+        text-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(0, 0, 0, 0.075);
+      }
+
+      .app-sub-sidebar li:before {
+        content: "○";
+      }
+
+      /* toc 距离顶端的距离 */
+      .page_toc {
+        top: 12rem;
+      }
+
+      /* 宽度大于 1300px 才会显示 TOC */
+      @media screen and (max-width: 1300px) {
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="body--ready">
+    <div id="app">🏃‍🏃‍🏃‍💨 加载中...</div>
+    <script>
+      window.$docsify = {
+        name: "<p>🌈 读书笔记</p>", // 文档标题，会显示在侧边栏顶部
+        nameLink: "https://newzone.top/", // 点击文档标题后跳转的链接地址。
+        // repo: 'https://github.com/rockbenben/LearnData',
+        // logo: '/_media/icon.svg', // 在侧边栏中出现的网站图标，你可以使用 CSS 来更改大小
+        // homepage: 'README.md', // 设置首页文件加载路径。适合不想将 README.md 作为入口文件渲染，或者是文档存放在其他位置的情况使用。
+        // coverpage: true, // 启用封面页。开启后是加载 _coverpage.md 文件，也可以自定义文件名。
+        // onlyCover: true, // 只在访问主页时加载封面。
+        notFoundPage: "README.md", // 404 时返回主页，也可以自定义加载的文件名。
+        auto2top: true, // 切换页面后是否自动跳转到页面顶部
+        // routerMode: 'history', // 设置路由模式，浏览器链接里不会出现 #
+        // relativePath: true, //默认为绝对路径，为 true 则链接会使用相对路径。
+
+        loadNavbar: true, // 加载自定义导航栏。设置为 true 后会加载 _navbar.md 文件，也可以自定义加载的文件名。
+        mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏。
+        topMargin: 40, // 让你的内容页在滚动到指定的锚点时，距离页面顶部有一定空间。当你使用固定页头布局时这个选项很有用，可以让你的锚点对齐标题栏。
+
+        loadSidebar: true, // 加载自定义侧边栏。设置为 true 后会加载 _sidebar.md 文件，也可以自定义加载的文件名。
+        // autoHeader: true, // 同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
+
+        maxLevel: 4, //默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
+        subMaxLevel: 2, //自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
+
+        // 我们可以通过 {docsify-updated} 变量显示文档更新日期。并且通过 formatUpdated 配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
+        // formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
+
+        // 全文搜索插件会根据当前页面上的超链接获取文档内容，在 localStorage 内建立文档索引。
+        // search: "auto", // 默认值
+        // 搜索完整配置参数
+        search: {
+          maxAge: 86400000, // 缓存过期时间，单位毫秒，默认一天
+          paths: "auto",
+          placeholder: "🔍 搜索",
+          noData: "😒 找不到结果，请缩短搜索词",
+
+          // 搜索标题的最大层级，1 - 6
+          depth: 2,
+
+          hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
+        },
+
+        // 定义路由别名，确保子目录使用根目录的侧边栏
+        alias: {
+          "/.*/_sidebar.md": "/_sidebar.md",
+          "/.*/_navbar.md": "/_navbar.md",
+        },
+
+        toc: {
+          scope: ".markdown-section",
+          headings: "h2, h3, h4, h5, h6",
+          title: "",
+        },
+        pagination: {
+          previousText: "PREVIOUS",
+          nextText: "NEXT",
+          crossChapter: true,
+        },
+        //gifcontrol: {
+        //mode: 'click'
+        //},
+
+        // docsify-waline 计算数字和评论支持
+        count: {
+          language: "chinese", // default:english|chinese
+        },
+		// 如有 Waline 后端，可添加阅读量统计：https://waline.js.org/guide/get-started/
+        // 添加页脚
+        footer: {
+          copy: "盛年不重来，一日难再晨。 —— ",
+          auth: '🏷️ <a href="https://newzone.top/" target="_blank">LearnData</a><br/><br/><span id="sitetime"></span>',
+          //pre: '<hr/>',
+          style: "text-align: left;",
+          //class: 'className',
+        },
+      };
+    </script>
+
+    <script src="https://oss.newzone.top/docsify/main/4.13.1/docsify.min.js"></script>
+    <script src="https://oss.newzone.top/docsify/main/4.13.1/plugins/search.min.js"></script>
+    <script src="https://oss.newzone.top/docsify/main/4.13.1/plugins/zoom-image.min.js"></script>
+    <script src="https://oss.newzone.top/docsify/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="https://oss.newzone.top/docsify/docsify-toc/dist/toc.js"></script>
+    <script src="https://oss.newzone.top/docsify/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+    <!-- 
+    <script src="https://oss.newzone.top/docsify/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
+    -->
+
+    <!-- 使用 Gitter 实现一个 IM 即时通讯聊天室功能 
+    <script>
+      ((window.gitter = {}).chat = {}).options = {
+        room: 'usthe/sureness'
+      };
+    </script>
+    <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+    -->
+
+    <!-- 网站运行时间统计 -->
+    <script>
+      (function () {
+        const startTime = Date.UTC(2022, 7, 23, 22, 22, 22); // 北京时间 2022-07-23 22:22:22 //LearnData 首个 commit 时间，改为你自己值得纪念的日子吧
+        const MS = { s: 1000, m: 60000, h: 3600000, d: 86400000, y: 31536000000 };
+
+        function updateSiteTime() {
+          const now = new Date();
+          const diff = Date.UTC(now.getFullYear(), now.getMonth() + 1, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds()) - startTime;
+          const y = Math.floor(diff / MS.y);
+          const d = Math.floor((diff % MS.y) / MS.d);
+          const h = Math.floor((diff % MS.d) / MS.h);
+          const m = Math.floor((diff % MS.h) / MS.m);
+          const s = Math.floor((diff % MS.m) / MS.s);
+          const el = document.getElementById("sitetime");
+          if (el) el.textContent = y > 0 ? `已运行 ${y} 年 ${d} 天 ${h} 小时 ${m} 分 ${s} 秒` : `已运行 ${d} 天 ${h} 小时 ${m} 分 ${s} 秒`;
+        }
+
+        updateSiteTime();
+        setInterval(updateSiteTime, 1000);
+      })();
+    </script>
+    <script src="https://oss.newzone.top/docsify/docsify-count/dist/countable.min.js"></script>
+
+    <!-- Waline v3 评论系统 -->
+    <script type="module">
+      import { init, pageviewCount } from "https://oss.newzone.top/@waline/3.8.0/client/dist/waline.js";
+
+      const walineConfig = window.$docsify?.waline || {};
+      if (!walineConfig.serverURL) {
+        console.warn("[Waline] serverURL is required");
+      } else {
+        let walineInstance = null;
+        const lang = window.$docsify?.count?.language || "chinese";
+        const suffix = lang === "chinese" ? "次阅读" : " views";
+
+        function createContainer() {
+          let container = document.getElementById("waline");
+          if (!container) {
+            container = document.createElement("div");
+            container.id = "waline";
+            container.style.cssText = "max-width: var(--content-max-width, 1200px); margin: 2rem auto; padding: 0 15px;";
+          }
+          return container;
+        }
+
+        function initWaline() {
+          const article = document.querySelector("article.markdown-section");
+          if (!article) return;
+
+          const container = createContainer();
+          if (!article.contains(container)) {
+            article.appendChild(container);
+          }
+
+          const path = (window.location.pathname + window.location.hash).replace(/\?.*$/, "");
+
+          const headerSpan = document.querySelector("#main div > span");
+          if (headerSpan) {
+            let counter = headerSpan.querySelector(".waline-pageview-count");
+            if (!counter) {
+              headerSpan.innerHTML += `&nbsp;|&nbsp;<span class="waline-pageview-count" data-path="${path}"></span>&nbsp;${suffix}`;
+            } else {
+              counter.setAttribute("data-path", path);
+              counter.textContent = "";
+            }
+          }
+
+          if (walineInstance?.destroy) walineInstance.destroy();
+
+          walineInstance = init({
+            el: "#waline",
+            serverURL: walineConfig.serverURL,
+            path: path,
+            pageview: true,
+            reaction: walineConfig.reaction || false,
+            locale: walineConfig.locales?.["/"] || {},
+          });
+
+          pageviewCount({
+            serverURL: walineConfig.serverURL,
+            path: path,
+            selector: ".waline-pageview-count",
+            update: true,
+          });
+        }
+
+        // 页面初始加载尝试初始化
+        setTimeout(initWaline, 500);
+        setTimeout(initWaline, 1500); // 重试一次以防万一
+
+        // 监听 docsify 路由变化
+        let lastPath = "";
+        const observer = new MutationObserver(() => {
+          const currentPath = window.location.pathname + window.location.hash;
+          if (currentPath !== lastPath) {
+            lastPath = currentPath;
+            setTimeout(initWaline, 100);
+          }
+        });
+
+        // 无论 DOMContentLoaded 是否已触发，都开始监听
+        const target = document.querySelector("#main");
+        if (target) {
+          observer.observe(target, { childList: true, subtree: true });
+        } else {
+          window.addEventListener("DOMContentLoaded", () => {
+            const t = document.querySelector("#main");
+            if (t) observer.observe(t, { childList: true, subtree: true });
+            setTimeout(initWaline, 500);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
